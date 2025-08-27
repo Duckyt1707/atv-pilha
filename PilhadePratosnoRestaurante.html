@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilha em JavaScript</title>
+</head>
+<body>
+  <h2>Simulação de Pilha (push e pop)</h2>
+
+  <input type="text" id="valor" placeholder="Digite um valor">
+  <button onclick="pushElemento()">Push</button>
+  <button onclick="popElemento()">Pop</button>
+
+  <p id="pilha">Pilha: []</p>
+  <p id="saida"></p>
+
+  <script>
+    
+    let pilha = [];
+
+    
+    function pushElemento() {
+      let valor = document.getElementById("valor").value;
+      if (valor === "") {
+        document.getElementById("saida").innerText = "Digite um valor!";
+        return;
+      }
+      pilha.push(valor); 
+      document.getElementById("saida").innerText = `Adicionado: ${valor}`;
+      atualizarPilha();
+      document.getElementById("valor").value = "";
+    }
+
+    
+    function popElemento() {
+      if (pilha.length === 0) {
+        document.getElementById("saida").innerText = "Pilha vazia!";
+        return;
+      }
+      let removido = pilha.pop(); 
+      document.getElementById("saida").innerText = `Removido: ${removido}`;
+      atualizarPilha();
+    }
+
+    
+    function atualizarPilha() {
+      document.getElementById("pilha").innerText = "Pilha: [" + pilha.join(", ") + "]";
+    }
+  </script>
+</body>
+</html>
