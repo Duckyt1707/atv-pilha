@@ -39,32 +39,33 @@
   <p id="historico">Histórico: []</p>
 
   <script>
-    let pilha = []; // pilha de estados do texto
+    let pilha = []; 
 
-    // Salvar o estado atual do texto (push)
+    
     function salvarAlteracao() {
       let texto = document.getElementById("editor").value;
-      pilha.push(texto); // guarda versão atual
+      pilha.push(texto); 
       atualizarHistorico();
       alert("Estado salvo!");
     }
 
-    // Desfazer (voltar ao último estado salvo)
+   
     function desfazer() {
       if (pilha.length === 0) {
         alert("Nenhum estado para desfazer!");
         return;
       }
-      pilha.pop(); // remove o último estado
+      pilha.pop(); 
       let ultimo = pilha.length > 0 ? pilha[pilha.length - 1] : "";
       document.getElementById("editor").value = ultimo;
       atualizarHistorico();
     }
 
-    // Atualizar exibição da pilha (histórico)
+    
     function atualizarHistorico() {
       document.getElementById("historico").innerText = "Histórico: [" + pilha.join(" | ") + "]";
     }
   </script>
 </body>
 </html>
+
