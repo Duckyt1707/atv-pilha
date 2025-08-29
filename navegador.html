@@ -38,36 +38,36 @@
   <p id="historico">Histórico: []</p>
 
   <script>
-    let pilha = []; // nossa pilha de páginas
+    let pilha = []; 
 
-    // Visitar uma nova página (push)
+    
     function visitarPagina() {
       let valor = document.getElementById("pagina").value;
       if (valor === "") {
         alert("Digite o nome de uma página!");
         return;
       }
-      pilha.push(valor); // adiciona no topo
+      pilha.push(valor); 
       atualizarTela();
       document.getElementById("pagina").value = "";
     }
 
-    // Voltar para a página anterior (pop)
+    
     function voltarPagina() {
       if (pilha.length === 0) {
         alert("Não há páginas para voltar!");
         return;
       }
-      pilha.pop(); // remove a página atual
+      pilha.pop(); 
       atualizarTela();
     }
 
-    // Atualizar a exibição
+    
     function atualizarTela() {
       if (pilha.length === 0) {
         document.getElementById("atual").innerText = "Página atual: Nenhuma";
       } else {
-        let atual = pilha[pilha.length - 1]; // topo da pilha
+        let atual = pilha[pilha.length - 1]; 
         document.getElementById("atual").innerText = "Página atual: " + atual;
       }
       document.getElementById("historico").innerText = "Histórico: [" + pilha.join(", ") + "]";
@@ -75,3 +75,4 @@
   </script>
 </body>
 </html>
+
